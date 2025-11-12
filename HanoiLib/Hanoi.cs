@@ -5,10 +5,7 @@ namespace HanoiLib
     public class Hanoi
     {
         private readonly int _amountOfDisk;
-
         private readonly Dictionary<string, Stack<int>> _poles;
-
-        public Dictionary<string, Stack<int>> Poles => _poles;
 
         public Hanoi(int n)
         {
@@ -50,6 +47,8 @@ namespace HanoiLib
             {
                 sb.Append($"{item.Key}: {string.Join(", ", item.Value.Reverse())}\n");
             }
+
+            if (IsFinished()) sb.Append("\nGame Over!!!\n\n");
 
             return sb.ToString();
         }
